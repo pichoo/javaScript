@@ -48,26 +48,27 @@ while menu_choice != 5:
             print("\nYou have entered a wrong Phone Number. Please try again with numbers only")
             continue
         
-        name = first_name + "_" +last_name
-        if name in contact_info:
-            contact_info[name]['phone_number'].append(phone)
-
         email = str(input("Email Address: "))  
         if isValidEmail(email) == True:
+            email = email
+        else:
+            email = input("Please enter a valid email id: ")
+            continue
             
+        name = first_name + "_" +last_name
+        if name in contact_info:
+            contact_info[name]['phone_number'].append(phone)     
+        else:
             tempdict = {}
             tempdict['phone_number']  = []
             tempdict['email_address'] = []
             tempdict['phone_number'].append(phone)
             tempdict['email_address'].append(email)
-            
             contact_info[name] = tempdict
 
 #[phone,email] #nested hash format should be contact_info=['name': {'Phone Number':phone, 'Email address':email }]
        
-        else:
-            email = input("Please enter a valid email id: ")
-            continue
+
 
         
     elif menu_choice == 2:
