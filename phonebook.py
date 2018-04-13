@@ -25,9 +25,6 @@ phonebook_menu()
 while menu_choice != 5:
     menu_choice = int(input("Select a menu Option (1-5): "))
 
-        
-    
-
 #When choosing option 1 it should accept a first name, last name and a phone number
 
     if menu_choice == 1:
@@ -55,7 +52,7 @@ while menu_choice != 5:
             email = input("Please enter a valid email id: ")
             continue
             
-        name = first_name + "_" +last_name
+        name = first_name + "_" +last_name #nested hash format should be contact_info=['name': {'Phone Number':phone, 'Email address':email }]
         if name in contact_info:
             contact_info[name]['phone_number'].append(phone)     
         else:
@@ -65,11 +62,6 @@ while menu_choice != 5:
             tempdict['phone_number'].append(phone)
             tempdict['email_address'].append(email)
             contact_info[name] = tempdict
-
-#[phone,email] #nested hash format should be contact_info=['name': {'Phone Number':phone, 'Email address':email }]
-       
-
-
         
     elif menu_choice == 2:
         print("\nType the Full Name to remove from the Phone Book")
